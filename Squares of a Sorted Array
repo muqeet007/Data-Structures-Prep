@@ -1,0 +1,25 @@
+function sortedSquares(nums: number[]): number[] {
+    const resultArray :number[]=new Array(nums.length).fill(0)
+
+    let resultpointer:number=resultArray.length-1
+    let leftpointer:number=0
+    let rightpointer:number=nums.length-1
+
+
+    while(leftpointer<rightpointer){
+        if(Math.abs(nums[leftpointer])>=Math.abs(nums[rightpointer])){
+            resultArray[resultpointer]=nums[leftpointer]*nums[leftpointer]
+            leftpointer++
+        }
+        else{
+            resultArray[resultpointer]=nums[rightpointer]*nums[rightpointer]
+            rightpointer--
+        }
+        resultpointer--
+    }
+
+    if(leftpointer===rightpointer){
+        resultArray[resultpointer]=nums[rightpointer]*nums[rightpointer]
+    }
+    return resultArray
+};
